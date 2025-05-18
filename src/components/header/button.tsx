@@ -1,11 +1,14 @@
-import React from 'react'
+import React, { MouseEventHandler } from 'react'
 
-export default function Button({Icon,index} : {Icon: React.ElementType,index: number}) {
+export default function Button({Icon, clickHandler = () => {} } : {Icon: React.ElementType, clickHandler?: MouseEventHandler}) {
 
   return (
-    <div>
-
-       <Icon className="w-7 h-7 cursor-pointer"></Icon> 
+    <div  
+      className='cursor-pointer p-1 hover:opacity-80'
+      style={{cursor: 'pointer'}}
+      onClick={() => clickHandler()}
+    >
+       <Icon className="w-7 h-7 cursor-pointer" style={{cursor: 'pointer'}}></Icon> 
     </div>
   )
 }

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import Navbar from './navbar'
 import Button from './button'
 import SearchBar from './search-bar'
@@ -7,17 +7,18 @@ import { CiUser } from "react-icons/ci";
 import { GoSun } from "react-icons/go";
 import { IoMoonOutline } from "react-icons/io5";
 import { AiOutlineShoppingCart } from "react-icons/ai";
-import {pageTheme} from '../../data/global/Theme.jsx'
 import { isLogin } from '../../data/global/isLogin';
-
-
-let theme = pageTheme == "light" ? GoSun : IoMoonOutline
-
-let userIcon = isLogin ? CiUser : CiLogin
-
-let buttons = [userIcon, AiOutlineShoppingCart,theme]
+import { myContex } from '../../app.jsx'
+import { useContext } from 'react';
+import { Link } from 'react-router-dom';
 
 export default function Header() {
+
+  const [pageTheme, changeTheme] = useContext(myContex)
+  let theme = pageTheme === "light" ? GoSun : IoMoonOutline
+  let userIcon = isLogin ? CiUser : CiLogin
+  let buttons = [userIcon, AiOutlineShoppingCart, theme]
+
   return (
     <div style={{
       display: "flex",
@@ -26,7 +27,7 @@ export default function Header() {
       alignItems: "center",
       height: "70px",
       padding: "0 25px",
-      backgroundColor: "rgb(156, 39, 176)",
+      backgroundColor: pageTheme === "light" ? "rgb(142, 36, 170)" : "rgb(156, 39, 176)",
       color: "white"
     }}>
       <Navbar></Navbar>
@@ -34,10 +35,21 @@ export default function Header() {
         <SearchBar></SearchBar>
         <div className='flex gap-7'>
           {buttons.map((item, index) => {
-            return <Button Icon={item} index={index} key={index}></Button>
+            return index != 0 ? <Button
+              Icon={item}
+              key={index}
+              clickHandler={index === 2 ? changeTheme : () => { }}
+            /> : <Link to='login'>
+              <Button
+                Icon={item}
+                key={index}
+                clickHandler={index === 2 ? changeTheme : () => { }}
+              ></Button>
+            </Link>
           })}
         </div>
       </div>
     </div>
   )
 }
+
