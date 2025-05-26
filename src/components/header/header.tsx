@@ -39,7 +39,7 @@ export default function Header() {
               Icon={item}
               key={index}
               clickHandler={index === 2 ? changeTheme : () => { }}
-            /> : <Link to='login'>
+            /> : <Link to='login-page'>
               <Button
                 Icon={item}
                 key={index}

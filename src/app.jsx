@@ -1,4 +1,4 @@
-import { useRoutes } from "react-router-dom"
+import { useRoutes, BrowserRouter } from "react-router-dom"
 import pageRoutes from "./routes/route"
 import { createContext, useState, useEffect, useMemo } from 'react';
 
@@ -8,8 +8,7 @@ export default function App() {
   let [pageTheme, setPageTheme] = useState(JSON.parse(localStorage.getItem("theme")) || "dark")
 
   const Routes = useRoutes(pageRoutes)
-
-
+  
   useEffect(() => {
     if (pageTheme === "light") {
       document.body.classList.add("light-theme");
@@ -31,9 +30,9 @@ export default function App() {
 
   return (
     <>
-      <myContex.Provider value={contextValue}>
+        <myContex.Provider value={contextValue}>
           {Routes}
-      </myContex.Provider>
+        </myContex.Provider>
     </>
   )
 }
