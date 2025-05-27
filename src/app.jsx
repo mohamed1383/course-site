@@ -25,7 +25,6 @@ export default function App() {
     setPageTheme(newTheme);
   }
 
-
   const contextValue = useMemo(() => [pageTheme, changeTheme], [pageTheme]);
 
   return (
