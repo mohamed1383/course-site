@@ -15,6 +15,8 @@ import { Link } from 'react-router-dom';
 export default function Header() {
 
   const [pageTheme, changeTheme] = useContext(myContex)
+
+
   let theme = pageTheme === "light" ? GoSun : IoMoonOutline
   let userIcon = isLogin ? CiUser : CiLogin
   let buttons = [userIcon, AiOutlineShoppingCart, theme]
@@ -39,7 +41,7 @@ export default function Header() {
               Icon={item}
               key={index}
               clickHandler={index === 2 ? changeTheme : () => { }}
-            /> : <Link to='login-page'>
+            /> : <Link to={!isLogin ? 'login-page' : 'user-info'}>
               <Button
                 Icon={item}
                 key={index}

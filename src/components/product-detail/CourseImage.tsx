@@ -16,8 +16,8 @@ export default function CourseImage({ imagePath, courseTitle, theme }: CourseIma
       />
       <div className={`absolute inset-0 bg-gradient-to-t opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl
         ${theme === "dark" 
-          ? "from-[#3a2b6d]/60 to-transparent" 
-          : "from-[#3a2b6d]/10 to-transparent"}`}>
+          ? "from-[#3a2b6d]/80 to-transparent" 
+          : "from-[#3a2b6d]/20 to-transparent"}`}>
       </div>
     </div>
   );

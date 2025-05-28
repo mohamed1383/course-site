@@ -19,6 +19,7 @@ export default function ProductBox({ name, image, price }: { name?: string, imag
                 <Button
                     sx={{
                         fontFamily: 'iran-yekan',
+                        zIndex: '2',
                         backgroundColor: pageTheme === "light" ? 'rgb(25, 118, 210)' : 'rgb(33, 150, 243)'
                     }}
                     variant='contained'

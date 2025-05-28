@@ -5,10 +5,12 @@ import EmailLogin from '../components/login-sign-in/email-login'
 import EmailSignIn from '../components/login-sign-in/email-sign-in'
 import PhoneLogin from '../components/login-sign-in/phone-login'
 import PhoneSignIn from '../components/login-sign-in/phone-sign-in'
+import UserInformationPage from '../pages/user-information-page'
 
 let pageRoutes = [
     {path: '/', element: <MainComponent></MainComponent>},
     {path: '/course' , element: <ProductDetailPage></ProductDetailPage>},
+    {path: '/user-info' , element: <UserInformationPage></UserInformationPage>},
     {path: '/login-page', element: <LoginPageWrapper></LoginPageWrapper> , children: [
         {path: 'email-login' , element : <EmailLogin></EmailLogin>},
         {path: 'email-sign-in' , element: <EmailSignIn></EmailSignIn>},
