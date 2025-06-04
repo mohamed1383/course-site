@@ -19,7 +19,7 @@ export default function UserProfile({ userInfo }: UserProfileProps) {
   const theme = useContext(myContex)[0];
 
   return (
-    <div className={`rounded-3xl p-8 mb-12 shadow-2xl backdrop-blur-sm
+    <div dir='rtl' className={`rounded-3xl p-8 mb-12 shadow-2xl backdrop-blur-sm
       ${theme === "dark" 
         ? "bg-[#4a3b7d]/80 border border-[#00c0e4]/20" 
         : "bg-white/90 border border-[#3a2b6d]/10"}`}>

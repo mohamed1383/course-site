@@ -1,21 +1,17 @@
 import React, { useContext } from 'react';
-import { myContex } from "../../app.jsx";
+import { myContex } from '../../app';
 import { FaTicketAlt, FaPlus } from 'react-icons/fa';
-
-interface Ticket {
-  id: number;
-  title: string;
-  status: string;
-  date: string;
-  priority: string;
-}
+import { Ticket } from '../../types/ticket';
+import { ThemeContextType } from '../../types/context';
 
 interface SupportTicketsProps {
   tickets: Ticket[];
+  ticketModal: [boolean, (isOpen: boolean) => void];
 }
 
-export default function SupportTickets({ tickets }: SupportTicketsProps) {
-  const theme = useContext(myContex)[0];
+export default function SupportTickets({ tickets, ticketModal }: SupportTicketsProps) {
+  const [theme] = useContext(myContex) as ThemeContextType;
+  const [isOpen, setOpenModal] = ticketModal;
 
   return (
     <div dir='rtl' className={`rounded-3xl p-8 shadow-2xl backdrop-blur-sm
@@ -33,7 +29,9 @@ export default function SupportTickets({ tickets }: SupportTicketsProps) {
           </div>
           تیکت‌های پشتیبانی
         </h2>
-        <button className={`px-6 py-3 rounded-xl flex items-center gap-3 text-lg font-medium
+        <button 
+          onClick={() => setOpenModal(true)}
+          className={`px-6 py-3 rounded-xl flex items-center gap-3 text-lg font-medium cursor-pointer
           ${theme === "dark"
             ? "bg-[#00c0e4] text-white"
             : "bg-[#3a2b6d] text-white"}`}>

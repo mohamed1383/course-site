@@ -1,11 +1,13 @@
-import React, { useContext } from 'react';
+import React, { useContext,useState } from 'react';
 import { myContex } from "../app.jsx";
 import UserProfile from '../components/user-info/UserProfile';
 import EnrolledCourses from '../components/user-info/EnrolledCourses';
 import SupportTickets from '../components/user-info/SupportTickets';
+import TicketModal from '../components/user-info/ticket-modal';
 
 export default function UserInformationPage() {
   const theme = useContext(myContex)[0];
+  const [modalOpen,setOpenModal] = useState(false)
 
   const userInfo = {
     name: "علی محمدی",
@@ -67,7 +69,8 @@ export default function UserInformationPage() {
       <div className="container mx-auto px-6">
         <UserProfile userInfo={userInfo} />
         <EnrolledCourses courses={userInfo.courses} />
-        <SupportTickets tickets={userInfo.tickets} />
+        <SupportTickets ticketModal={[modalOpen,setOpenModal]} tickets={userInfo.tickets} />
+        <TicketModal isOpen={modalOpen} onClose={() => setOpenModal(false)} />
       </div>
     </div>
   );
