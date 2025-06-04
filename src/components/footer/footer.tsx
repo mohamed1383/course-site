@@ -12,10 +12,10 @@ const Footer = () => {
     <footer className='relative mt-20 overflow-hidden'>
       <div className={`absolute inset-0 ${them[0] == "dark" ? 'bg-[rgba(224,223,223,0.08)]' :
          'bg-[linear-gradient(180deg,_#cfd6f0_0%,_#aeb9e1_100%)]'} backdrop-blur-[30px] border 
-         border-[rgba(224,223,223,0.3)] shadow-[0_4px_30px_rgba(0,0,0,0.15)]`} />
+         border-[rgba(224,223,223,0.3)] shadow-[0_4px_30px_rgba(0,0,0,0.15)] flex flex-col items-center`} />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
+        <div className="grid text-center grid-cols-1 md:grid-cols-4 gap-12">
 
           <div className="space-y-6">
             <h3 className="text-2xl font-bold text-blue-500 hover:text-blue-400 transition-colors duration-300">درباره ما</h3>
@@ -24,9 +24,9 @@ const Footer = () => {
             </p>
           </div>
 
-          <div className="space-y-6">
-            <h3 className="text-2xl font-bold text-blue-500 hover:text-blue-400 transition-colors duration-300">دسترسی سریع</h3>
-            <ul className="space-y-4">
+          <div className="space-y-6 flex flex-col items-center">
+            <h3 className="text-2xl text-center font-bold text-blue-500 hover:text-blue-400 transition-colors duration-300">دسترسی سریع</h3>
+            <ul className="space-y-4 text-center">
               {[
                 { href: '#', text: 'صفحه اصلی' },
                 { href: '#', text: 'دوره‌ها' },
@@ -46,7 +46,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          <div className="space-y-6">
+          <div className="space-y-6 flex flex-col items-center">
             <h3 className="text-2xl font-bold text-blue-500 hover:text-blue-400 transition-colors duration-300">تماس با ما</h3>
             <ul className="space-y-4">
               <li className="flex items-center space-x-3 rtl:space-x-reverse group">
@@ -64,7 +64,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          <div className="space-y-6">
+          <div className="space-y-6 flex flex-col items-center">
             <h3 className="text-2xl font-bold text-blue-500 hover:text-blue-400 transition-colors duration-300">شبکه‌های اجتماعی</h3>
             <div className="flex space-x-6 rtl:space-x-reverse">
               {[FaFacebook, FaTwitter, FaInstagram, FaLinkedin].map((Icon, i) => (

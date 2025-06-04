@@ -28,7 +28,7 @@ export default function MainComponent() {
       <ProductContainer />
       <TestimonialsSection />
       <Footer />
-      <CursorTrail />
+      {/* <CursorTrail /> */}
     </div>
   )
 }
