@@ -55,7 +55,7 @@ export default function Header() {
                 </Link>
               )
             }
-            return <Button Icon={IconComponent} key={index} clickHandler={clickHandler} />
+            return <Link to='/shoping-cart'><Button Icon={IconComponent} key={index} clickHandler={clickHandler} /></Link>
           })}
         </div>
       </div>
