@@ -2,8 +2,13 @@ import React from 'react'
 import { useMediaQuery } from 'react-responsive';
 import { useEffect, useState } from 'react';
 import { LuMenu } from "react-icons/lu";
+import { FaLaptopCode } from "react-icons/fa";
+import { FaPhoneSquare } from "react-icons/fa";
+import { IoHome } from "react-icons/io5";
+import { IoCloseOutline } from "react-icons/io5";
 
 export default function Navbar() {
+
 
   let courses = [{
     subject: "فرانت اند",
@@ -15,6 +20,7 @@ export default function Navbar() {
   },
   ]
 
+  const [mobileMenu, setMobileMenu] = useState(false)
   const size1 = useMediaQuery({ query: "(max-width: 1100px)" })
   const [isSize1, setIsMobile] = useState(false)
 
@@ -24,7 +30,32 @@ export default function Navbar() {
 
   return (
     <>
-      <LuMenu className={`${isSize1 ? '' : "hidden"} w-[35px] h-[35px] cursor-pointer`}></LuMenu>
+      <LuMenu onClick={() => setMobileMenu(true)} className={`${isSize1 ? '' : "hidden"} w-[35px] h-[35px] cursor-pointer`}></LuMenu>
+
+      <div
+        className={`fixed top-0 right-0 w-[300px] h-[100vh] z-30 bg-[#6A1B9A] transform transition-transform duration-300 ${mobileMenu ? 'translate-x-0' : 'translate-x-full'
+          }`}
+      >
+        <IoCloseOutline
+          onClick={() => setMobileMenu(false)}
+          className="absolute left-0 w-10 h-10 transition-all cursor-pointer hover:text-red-500 hover:scale-[1.1] hover:rotate-[15deg]"
+        />
+
+        <ul className="absolute right-[5%] top-[7%] space-y-5 text-white">
+          <li className="group text-right flex items-center gap-3 justify-end cursor-pointer transition-colors duration-300 hover:text-yellow-300">
+            خانه <IoHome className="text-xl transition-transform duration-300 group-hover:scale-110" />
+          </li>
+          <li className="group text-right flex items-center gap-3 justify-end cursor-pointer transition-colors duration-300 hover:text-yellow-300">
+            دوره‌های آموزشی <FaLaptopCode className="text-xl transition-transform duration-300 group-hover:scale-110" />
+          </li>
+          <li className="group text-right flex items-center gap-3 justify-end cursor-pointer transition-colors duration-300 hover:text-yellow-300">
+            تماس با ما <FaPhoneSquare className="text-xl transition-transform duration-300 group-hover:scale-110" />
+          </li>
+        </ul>
+      </div>
+
+
+      <div className={`${mobileMenu ? '' : 'hidden'} absolute top-0 bottom-0 right-0 left-0 w-full h-full bg-[#00000085] z-20`}></div>
 
       <ul style={{
         display: `${isSize1 ? "none" : "flex"}`, gap: "50px", listStyleType: "none",
