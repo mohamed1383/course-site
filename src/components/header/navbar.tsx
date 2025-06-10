@@ -1,5 +1,6 @@
 import React from 'react'
 import { useMediaQuery } from 'react-responsive';
+import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { LuMenu } from "react-icons/lu";
 import { FaLaptopCode } from "react-icons/fa";
@@ -66,7 +67,9 @@ export default function Navbar() {
         <li style={{ cursor: "pointer", fontSize: "20px" }}>خانه</li>
         <li className="relative text-lg">
           <div className="group inline-block cursor-pointer">
-            دوره های آموزشی
+            <Link to='/product-page'>
+              دوره های آموزشی
+            </Link>
 
             <ul className="invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all duration-300 w-[180px] bg-[#9c27b0] absolute top-[165%] right-[-10%] z-50 p-0">
               {courses.map((item, index) => (

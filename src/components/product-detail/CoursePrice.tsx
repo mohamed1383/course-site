@@ -13,6 +13,7 @@ export default function CoursePrice({ price, theme }: CoursePriceProps) {
       <Button
         variant="contained"
         startIcon={<FaShoppingCart />}
+        className='cursor-pointer'
         sx={{
           fontFamily: 'iran-yekan',
           backgroundColor: theme === "dark" ? '#00c0e4' : '#3a2b6d',

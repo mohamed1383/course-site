@@ -17,18 +17,18 @@ export default function CourseInfo({ courseTitle, description, theme }: CourseIn
         {courseTitle || "تایتل دوره"}
       </h1>
       
-      <div className="flex items-center justify-end space-x-4 rtl:space-x-reverse">
+      <div className="flex items-center justify-between space-x-4 rtl:space-x-reverse">
         <div className="flex items-center space-x-1 rtl:space-x-reverse">
           <FaStar className={theme === "dark" ? "text-[#00c0e4]" : "text-[#3a2b6d]/80"} />
           <FaStar className={theme === "dark" ? "text-[#00c0e4]" : "text-[#3a2b6d]/80"} />
           <FaStar className={theme === "dark" ? "text-[#00c0e4]" : "text-[#3a2b6d]/80"} />
           <FaStar className={theme === "dark" ? "text-[#00c0e4]" : "text-[#3a2b6d]/80"} />
           <FaRegStar className={theme === "dark" ? "text-[#00c0e4]" : "text-[#3a2b6d]/80"} />
-          <span className={`mr-2 ${theme === "dark" 
+          <span className={`mr-2 ml-1 ${theme === "dark" 
             ? "text-[#3a2b6d] dark:text-[#00c0e4]" 
             : "text-[#3a2b6d]/80"}`}>4.0</span>
         </div>
-        <div className="flex items-center space-x-1 rtl:space-x-reverse">
+        <div className="flex flex-row-reverse items-center space-x-1 rtl:space-x-reverse">
           <FaUsers className={theme === "dark" ? "text-[#00c0e4]" : "text-[#3a2b6d]/80"} />
           <span className={`mr-2 ${theme === "dark" 
             ? "text-[#3a2b6d] dark:text-[#00c0e4]" 

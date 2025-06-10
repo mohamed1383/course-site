@@ -14,10 +14,7 @@ export default function ProductContainer() {
             className={`w-full grid gap-8 p-4 md:px-20 lg:px-40
                 ${isSize1 ? 'grid-cols-4' : isSize2 ? 'grid-cols-3' : isSize3 ? 'grid-cols-2' : 'grid-cols-1'}`}
         >
-            <Link to='course'>
-                <ProductBox />
-            </Link>
-           {[...Array(5)].map((item,index) => <Link key={index} to='course'><ProductBox /></Link>)}
+           {[...Array(8)].map((item,index) => <Link key={index} to='course'><ProductBox /></Link>)}
         </div>
     );
 }

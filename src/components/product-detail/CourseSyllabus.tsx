@@ -31,7 +31,7 @@ export default function CourseSyllabus({ theme }: CourseSyllabusProps) {
               : "bg-[#3a2b6d]/5 border-[#3a2b6d]/10"}`}>
             <button
               onClick={() => toggleSection(item)}
-              className={`w-full p-4 flex items-center justify-between group transition-all duration-300
+              className={`cursor-pointer w-full p-4 flex items-center justify-between group transition-all duration-300
                 ${theme === "dark" 
                   ? "hover:bg-[#0066a3]/20" 
                   : "hover:bg-[#3a2b6d]/10"}`}>
@@ -67,14 +67,14 @@ export default function CourseSyllabus({ theme }: CourseSyllabusProps) {
             <div className={`grid transition-all duration-300 ease-in-out
               ${openSection === item ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}>
               <div className="overflow-hidden">
-                <div className={`px-4 py-3 space-y-2 border-t
+                <div className={` space-y-2 border-t
                   ${theme === "dark" 
                     ? "border-[#0099b3]/20 bg-[#0066a3]/10" 
                     : "border-[#3a2b6d]/10 bg-[#3a2b6d]/5"}`}>
                   {[1, 2, 3, 4, 5, 6].map((lesson) => (
                     <div
                       key={lesson}
-                      className={`flex items-center justify-between py-2.5 border-b last:border-0 group/lesson
+                      className={`box-border px-4 py-3 mb-0 cursor-pointer flex items-center justify-between  border-b last:border-0 group/lesson
                         ${theme === "dark" 
                           ? "border-[#0099b3]/20 hover:bg-[#0066a3]/20" 
                           : "border-[#3a2b6d]/10 hover:bg-[#3a2b6d]/10"}`}>

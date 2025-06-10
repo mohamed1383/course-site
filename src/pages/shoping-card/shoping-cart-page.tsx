@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import CartItem from "../../components/CartItem";
-import CartSummary from "../../components/CartSummary";
+import CartItem from "../../components/shoping-cart/CartItem";
+import CartSummary from "../../components/shoping-cart/CartSummary";
 
 interface CartItem {
   id: number;
