@@ -26,7 +26,10 @@ const HeroSection = () => {
               <span className="text-sm font-medium">پلتفرم آموزشی پیشرو</span>
             </div>
             
-            <h1 className={`text-5xl md:text-7xl font-extrabold mb-8 leading-tight ${them[0] === "dark" ? 'text-white' : 'text-gray-900'}`}>
+            <h1 className={`text-5xl md:text-7xl font-extrabold mb-8 leading-tight ${them[0] === "dark" ? 'text-white' : 'text-gray-900'}`}
+            style={{
+              fontFamily: "iran-yekan"
+            }}>
               یادگیری آنلاین با
               <span className="text-blue-600 block mt-3">بهترین اساتید</span>
             </h1>
