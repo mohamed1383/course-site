@@ -1,11 +1,9 @@
-import React, { useContext } from "react";
+import React from "react";
 import ProductBox from "./product-box";
 import { useMediaQuery } from "react-responsive";
-import { myContex } from "../../app.jsx";
 import { Link } from "react-router-dom";
 
 export default function ProductContainer() {
-    const [pageTheme] = useContext(myContex);
 
     const isSize1 = useMediaQuery({ query: "(min-width: 1500px)" });
     const isSize2 = useMediaQuery({ query: "(min-width: 1259px)" });
@@ -19,11 +17,7 @@ export default function ProductContainer() {
             <Link to='course'>
                 <ProductBox />
             </Link>
-            <ProductBox />
-            <ProductBox />
-            <ProductBox />
-            <ProductBox />
-            <ProductBox />
+           {[...Array(5)].map((item,index) => <Link key={index} to='course'><ProductBox /></Link>)}
         </div>
     );
 }
