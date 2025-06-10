@@ -15,12 +15,12 @@ export default function Header() {
   const [pageTheme, changeTheme] = useContext(myContex)
 
 
-  const Size2 = useMediaQuery({ query: "(max-width: 500px)" },{noSsr: true})
-  const [isSize2,setIsSize2] = useState(false)
+  const Size2 = useMediaQuery({ query: "(max-width: 500px)" }, { noSsr: true })
+  const [isSize2, setIsSize2] = useState(false)
 
   useEffect(() => {
     setIsSize2(Size2)
-  },[window.innerWidth])
+  }, [window.innerWidth])
 
   const themeIcon = pageTheme === "light" ? GoSun : IoMoonOutline
   const userIcon = isLogin ? CiUser : CiLogin
@@ -32,8 +32,8 @@ export default function Header() {
       style={{
         display: "flex",
         flexDirection: "row-reverse",
-        justifyContent: "space-around" ,
-        gap: "25px" ,
+        justifyContent: "space-around",
+        gap: "25px",
         alignItems: "center",
         height: "70px",
         padding: "0 15px",
@@ -47,15 +47,19 @@ export default function Header() {
         <div className="flex gap-3 sm:gap-7">
           {buttons.map((IconComponent, index) => {
 
-            const clickHandler = index === 2 ? changeTheme : () => {}
+            const clickHandler = index === 2 ? changeTheme : () => { }
             if (index === 0) {
               return (
                 <Link to={!isLogin ? "/login-page" : "/user-info"} key={index}>
                   <Button Icon={IconComponent} clickHandler={clickHandler} />
                 </Link>
               )
+            } else if (index === 1) {
+              return <Link to='/shoping-cart'><Button Icon={IconComponent} key={index} clickHandler={clickHandler} /></Link>
+            } else {
+              return <Button Icon={IconComponent} key={index} clickHandler={clickHandler} />
             }
-            return <Link to='/shoping-cart'><Button Icon={IconComponent} key={index} clickHandler={clickHandler} /></Link>
+
           })}
         </div>
       </div>
